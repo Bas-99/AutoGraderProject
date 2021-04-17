@@ -89,3 +89,6 @@ def frameFilter(name,min_area,fps,height,width,save_path_test,fourcc_avi,fileNam
     prod_out.release()
     vs.release()
     cv2.destroyAllWindows()
+
+def imageResize():
+    
