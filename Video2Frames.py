@@ -1,14 +1,19 @@
+#----------------------------------------------------------------------------------------------------------------------#
+#------------------------------------------------Video2Frames.py-------------------------------------------------------#
+#----------------------------------------------------------------------------------------------------------------------#
+# This file contains two function, one for general frame extraction from a .avi file and one for creating valid data   #
+# to feed into the ML models.                                                                                          #
+#----------------------------------------------------------------------------------------------------------------------#
+
 import cv2
 import numpy as np
 import os
 
 img_height, img_width = 64, 64
 
-#  Creating frames from videos
 classes = ["incorrect", "correct"]
 
-#  Creating frames from videos
-
+# this function will convert video files to frame lists
 def frames_extraction(video_path,seq_len):
     frames_list = []
 
@@ -29,7 +34,8 @@ def frames_extraction(video_path,seq_len):
 
     return frames_list
 
-
+# this function will use frames_extraction() to loop over all
+# files in the given directory and store the data in X
 def create_data(input_dir,seq_len):
     X = []
 

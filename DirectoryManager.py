@@ -41,7 +41,9 @@ path_TwinCat = 'C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\Common7\\
 
 # path for the simulation file, CAUTION: make sure to adjust this path to the right path
 # folder_dh_DT = 'C:\\Users\\20182615\Documents\\Jaar 3\\BEP\\OldProjects\\FESTO112\\cif_plc_control'
-path1_dh_DT = 'C:\\Users\\20182615\Documents\\Jaar 3\\BEP\\OldProjects' # this path has to be changed to the path where all assignments are stored
+
+# this path has to be changed to the path where all assignments are stored
+path1_dh_DT = 'C:\\Users\\20182615\Documents\\Jaar 3\\BEP\\OldProjects'
 # FESTO 101 defective
 assignments = ["FESTO102","FESTO103","FESTO105","FESTO107","FESTO108",
                "FESTO109","FESTO110","FESTO111","FESTO113","FESTO114","FESTO115"]
@@ -54,3 +56,10 @@ def FolderAdder():
         newpath = os.path.join(filtered_video_per_assignment,assignment)
         if not os.path.exists(newpath):
             os.makedirs(newpath)
+
+# setting the path where the ML models are stored
+model_path = 'C:\\Users\\20182615\\Documents\\Jaar 3\\BEP\\EncodingDecoding\\grading\\models'
+
+# setting the path where to retrieve the simulation videos
+simulation_path = "C:\\Users\\20182615\\Documents\\Jaar 3\\BEP\\EncodingDecoding\\grading\\simulations"
+
