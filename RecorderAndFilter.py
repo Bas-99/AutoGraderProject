@@ -90,5 +90,26 @@ def frameFilter(name,min_area,fps,height,width,save_path_test,fourcc_avi,fileNam
     vs.release()
     cv2.destroyAllWindows()
 
-def imageResize():
-    
+def imageResize(name, width, height, save_path_test, fileName, assignments, fourcc_avi, fps, size):
+    vs = cv2.VideoCapture(name)
+    resized_arr = []
+    while True:
+        succes, frame = vs.read()
+        if frame is None:
+            break
+        resized = cv2.resize(frame, (width, height), interpolation=cv2.INTER_AREA)
+        resized_arr.append(resized)
+
+        key = cv2.waitKey(1) & 0xFF
+        if key == ord(""):
+            break
+
+    vid_out = cv2.VideoWriter(os.path.join(save_path_test, fileName + assignments + ".avi"), fourcc_avi, fps, size)
+
+    for frame in resized_arr:
+        frame1 = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        vid_out.write(frame1)
+
+    vid_out.release()
+    vs.release()
+    cv2.destroyAllWindows()
