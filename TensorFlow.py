@@ -7,13 +7,17 @@ import os
 model_path = 'C:\\Users\\20182615\\Documents\\Jaar 3\\BEP\\EncodingDecoding\\grading\\models'
 simulation_path = "C:\\Users\\20182615\\Documents\\Jaar 3\\BEP\\EncodingDecoding\\grading\\simulations"
 test_names = ["test1a","test1b","test2","test3a","test3b"]
+grade_file_path = "C:\\Users\\20182615\\PycharmProjects\\SimulationRecorder_and_Filter\\sub_grades.txt"
 seq_len = [250,350,350,350,350]
 
 def last3(s):
     return s[-7:-4]
 
 def gradingData():
+    global name
     classes = ["correct","incorrect"]
+    open(grade_file_path, 'w').close()
+    print("grading file is cleaned")
     for name in test_names:
         test_path = os.path.join(simulation_path, name)
         file_path = os.path.join(model_path, name)
@@ -40,9 +44,14 @@ def gradingData():
 
             if classes[classif[0]] == "correct":
                 score += 1
-            print("Group " + last3(files[count]) + " scored " + str(score) + " point for " + name)
+            string_grade = "Group " + last3(files[count]) + " scored " + str(score) + " point for " + name
+            # print(string_grade)
             count += 1
 
+            with open(grade_file_path, 'a') as the_file:
+                the_file.write('{}\n'.format(string_grade))
+
+        print("Test " + name + " is finished grading")
 
 gradingData()
 
