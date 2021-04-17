@@ -1,6 +1,6 @@
 # https://www.tensorflow.org/install/gpu
 from tensorflow.keras.models import load_model
-from Converting_Data_prod1 import X, Y, classes
+from OldFiles.Converting_Data_prod1 import X, classes
 import numpy as np
 
 model_path = 'C:\\Users\\20182615\\Documents\\Jaar 3\\BEP\\saved_ML_models\\model_1_pickup'
