@@ -1,3 +1,11 @@
+#----------------------------------------------------------------------------------------------------------------------#
+#--------------------------------------------DirectoryInitializer.py---------------------------------------------------#
+#----------------------------------------------------------------------------------------------------------------------#
+# This file contains the directory setup, which has to be changed to the user. First a general path has to be specified#
+# Then a path for the unity simulation and TwinCat program have to be specified. Then this file can be ran, after it   #
+# successfully ran, one should add the ML models to "ml_models" and the assignments to "all_assignments"               #
+#----------------------------------------------------------------------------------------------------------------------#
+
 import os
 
 # making a folder to un-zip and store all the assignments into
@@ -7,6 +15,7 @@ def StudentAssignmentFolder():
         os.makedirs(dir_assignments)
     return dir_assignments
 
+# making folder with sub-directories to store the ML models into
 def MlModelFolder(test_names):
     dir_models = os.path.join(general_path,"ml_models")
     if not os.path.exists(dir_models):
@@ -29,8 +38,7 @@ path_unity = 'C:\\Users\\20182615\\Documents\\Jaar 3\\BEP\\OldProjects\\FESTO112
 # SELECT TWINCAT DIRECTORY HERE:
 path_TwinCat = 'C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\Common7\\IDE'
 
-# test_names = ["test1a", "test1b", "test2", "test3a","test3b"]
-test_names = ["test1a"]
+test_names = ["test1a", "test1b", "test2", "test3a","test3b"]
 
 # now the program will initialize some folders in the general directory selected above.
 

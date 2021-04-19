@@ -1,4 +1,17 @@
-The final grade of group g o is 0 out of 1 points
-The final grade of group 102 is 1 out of 1 points
-The final grade of group 103 is 0 out of 1 points
-The final grade of group est is 0 out of 1 points
+The final grade of group 101 is 0 out of 5 points
+The final grade of group 102 is 4 out of 5 points
+The final grade of group 103 is 1 out of 5 points
+The final grade of group 104 is 3 out of 5 points
+The final grade of group 105 is 2 out of 5 points
+The final grade of group 106 is 2 out of 5 points
+The final grade of group 107 is 1 out of 5 points
+The final grade of group 108 is 0 out of 5 points
+The final grade of group 109 is 1 out of 5 points
+The final grade of group 110 is 3 out of 5 points
+The final grade of group 111 is 1 out of 5 points
+The final grade of group 112 is 3 out of 5 points
+The final grade of group 113 is 4 out of 5 points
+The final grade of group 114 is 1 out of 5 points
+The final grade of group 115 is 3 out of 5 points
+The final grade of group 121 is 1 out of 5 points
+The final grade of group est is 0 out of 5 points

@@ -1,30 +1,16 @@
 #----------------------------------------------------------------------------------------------------------------------#
 #--------------------------------------------DirectoryManager.py-------------------------------------------------------#
 #----------------------------------------------------------------------------------------------------------------------#
-# This file contains everything about the directory and path files, which are required within this grading tool. Before#
-# starting the grading process one should make sure that this file is correctly setup.                                 #
+# This file contains some general directory managing, note this file does not require any additional input or changing #
 #----------------------------------------------------------------------------------------------------------------------#
 
 import os
 from DirectoryInitializer import general_path
 
-#----------------------------------------------------------------------------------------------------------------------#
-#-------------------------------------------Directory-Filtered-Videos--------------------------------------------------#
-#----------------------------------------------------------------------------------------------------------------------#
-
-# directory for the filtered videos (choose in if placed in correct or incorrect directory)
-
-#----------------------------------------------------------------------------------------------------------------------#
-#-------------------------------------------Directories-App-Runner-----------------------------------------------------#
-#----------------------------------------------------------------------------------------------------------------------#
-
-# path for the simulation file, CAUTION: make sure to adjust this path to the right path
-# folder_dh_DT = 'C:\\Users\\20182615\Documents\\Jaar 3\\BEP\\OldProjects\\FESTO112\\cif_plc_control'
-
-# this path has to be changed to the path where all assignments are stored
+# below, the generilized sub-directory of the plc file is listed
 path2_dh_DT = 'cif_plc_control'
 
-# making a folder to store the scracht video files into
+# making a folder to store the scratch video files into
 def ScratchFolder():
     dir_scratch = os.path.join(general_path,"scratch_videos")
     if not os.path.exists(dir_scratch):
@@ -36,6 +22,7 @@ def getAssignments():
     assignments = os.listdir(os.path.join(general_path,"all_assignments"))
     return assignments
 
+# function to add sub-directories to store the video files of the tested simulations into
 def FolderAdder(test_names):
     dir_simulations = os.path.join(general_path,"all_assignment_simulations")
     if not os.path.exists(dir_simulations):
@@ -46,6 +33,7 @@ def FolderAdder(test_names):
             os.makedirs(test_dir)
     return dir_simulations
 
+# adding sub-directories for the different scratch videos of the different tests
 def scratchVidNames(test_names):
     names = []
     dir_scratch = ScratchFolder()
@@ -53,7 +41,6 @@ def scratchVidNames(test_names):
         names.append(os.path.join(dir_scratch, test + ".avi"))
     return names
 
-# model_path = "C:\\Users\\20182615\\Documents\\Jaar 3\\BEP\\EncodingDecoding\\grading\\models"
 
 
 

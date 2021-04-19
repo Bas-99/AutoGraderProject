@@ -1,8 +1,103 @@
-Grading of all assignments took 9.792991161346436 seconds
-The final grade of group g o is 0 out of 1 points
+Grading of all assignments took 267.5207562446594 seconds
+Group 101 scored 0 point for test1a
+Group 101 scored 0 point for test1b
+Group 101 scored 0 point for test2
+Group 101 scored 0 point for test3a
+The final grade of group 101 is 0 out of 5 points
+Group 101 scored 0 point for test3b
 Group 102 scored 1 point for test1a
-The final grade of group 102 is 1 out of 1 points
+Group 102 scored 1 point for test1b
+Group 102 scored 1 point for test2
+Group 102 scored 1 point for test3a
+The final grade of group 102 is 4 out of 5 points
+Group 102 scored 1 point for test3b
 Group 103 scored 0 point for test1a
-The final grade of group 103 is 0 out of 1 points
-Test test1a finished grading in 9.790991306304932 seconds
-The final grade of group est is 0 out of 1 points
+Group 103 scored 0 point for test1b
+Group 103 scored 0 point for test2
+Group 103 scored 0 point for test3a
+The final grade of group 103 is 1 out of 5 points
+Group 103 scored 0 point for test3b
+Group 104 scored 0 point for test3b
+Group 104 scored 1 point for test1a
+Group 104 scored 1 point for test1b
+Group 104 scored 1 point for test2
+The final grade of group 104 is 3 out of 5 points
+Group 104 scored 1 point for test3a
+Group 105 scored 0 point for test1a
+Group 105 scored 0 point for test3a
+Group 105 scored 0 point for test3b
+Group 105 scored 1 point for test1b
+The final grade of group 105 is 2 out of 5 points
+Group 105 scored 1 point for test2
+Group 106 scored 0 point for test2
+Group 106 scored 0 point for test3a
+Group 106 scored 0 point for test3b
+Group 106 scored 1 point for test1a
+The final grade of group 106 is 2 out of 5 points
+Group 106 scored 1 point for test1b
+Group 107 scored 0 point for test1a
+Group 107 scored 0 point for test1b
+Group 107 scored 0 point for test2
+Group 107 scored 0 point for test3a
+The final grade of group 107 is 1 out of 5 points
+Group 107 scored 0 point for test3b
+Group 108 scored 0 point for test1a
+Group 108 scored 0 point for test1b
+Group 108 scored 0 point for test2
+Group 108 scored 0 point for test3a
+The final grade of group 108 is 0 out of 5 points
+Group 108 scored 0 point for test3b
+Group 109 scored 0 point for test1a
+Group 109 scored 0 point for test2
+Group 109 scored 0 point for test3a
+Group 109 scored 1 point for test1b
+The final grade of group 109 is 1 out of 5 points
+Group 109 scored 1 point for test3b
+Group 110 scored 0 point for test1a
+Group 110 scored 0 point for test3a
+Group 110 scored 1 point for test1b
+Group 110 scored 1 point for test2
+The final grade of group 110 is 3 out of 5 points
+Group 110 scored 1 point for test3b
+Group 111 scored 0 point for test1a
+Group 111 scored 0 point for test1b
+Group 111 scored 0 point for test2
+Group 111 scored 0 point for test3a
+The final grade of group 111 is 1 out of 5 points
+Group 111 scored 0 point for test3b
+Group 112 scored 0 point for test2
+Group 112 scored 1 point for test1a
+Group 112 scored 1 point for test1b
+Group 112 scored 1 point for test3a
+The final grade of group 112 is 3 out of 5 points
+Group 112 scored 1 point for test3b
+Group 113 scored 0 point for test1a
+Group 113 scored 1 point for test1b
+Group 113 scored 1 point for test2
+Group 113 scored 1 point for test3a
+The final grade of group 113 is 4 out of 5 points
+Group 113 scored 1 point for test3b
+Group 114 scored 0 point for test1a
+Group 114 scored 0 point for test1b
+Group 114 scored 0 point for test2
+Group 114 scored 0 point for test3a
+The final grade of group 114 is 1 out of 5 points
+Group 114 scored 0 point for test3b
+Group 115 scored 0 point for test3a
+Group 115 scored 1 point for test1a
+Group 115 scored 1 point for test1b
+Group 115 scored 1 point for test2
+The final grade of group 115 is 3 out of 5 points
+Group 115 scored 1 point for test3b
+Group 121 scored 0 point for test1a
+Group 121 scored 0 point for test1b
+Group 121 scored 0 point for test2
+Group 121 scored 0 point for test3a
+The final grade of group 121 is 1 out of 5 points
+Group 121 scored 0 point for test3b
+Test test1a finished grading in 41.69396233558655 seconds
+Test test1b finished grading in 54.85895013809204 seconds
+Test test2 finished grading in 55.04195857048035 seconds
+Test test3a finished grading in 55.58994936943054 seconds
+The final grade of group est is 0 out of 5 points
+Test test3b finished grading in 60.332945823669434 seconds
