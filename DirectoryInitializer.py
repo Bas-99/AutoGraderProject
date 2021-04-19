@@ -13,6 +13,7 @@ def StudentAssignmentFolder():
     dir_assignments = os.path.join(general_path,"all_assignments")
     if not os.path.exists(dir_assignments):
         os.makedirs(dir_assignments)
+    print("all_assignments folder has been added")
     return dir_assignments
 
 # making folder with sub-directories to store the ML models into
@@ -24,6 +25,7 @@ def MlModelFolder(test_names):
         test_model_dir = os.path.join(dir_models,test)
         if not os.path.exists(test_model_dir):
             os.makedirs(test_model_dir)
+    print("ml_models folder has been added")
     return dir_models
 
 # first choose a general path to which the programm may add folders to save all models and videos
