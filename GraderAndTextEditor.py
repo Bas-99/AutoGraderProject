@@ -14,13 +14,14 @@ from Video2Frames import create_data
 import numpy as np
 import os
 import time
-from DirectoryManager import model_path, simulation_path, grade_file_path, vid_names
+from DirectoryManager import FolderAdder
+from DirectoryInitializer import test_names, MlModelFolder
 
 # amount of frames is set for every test
 # videos of first test contain 250 frames,
 # videos of second test contain 350 frames etc.
-test_names = vid_names
 seq_len = [250,350,350,350,350]
+dir_simulations = FolderAdder(test_names)
 
 # function to get the group number out of strings
 def last3(s):
@@ -75,12 +76,13 @@ def gradingData():
     classes = ["correct","incorrect"]
     open("sub_grades.txt", 'w').close()
     print("grading file is cleaned")
+    dir_models = MlModelFolder(test_names)
 
     # looping over all different tests
     for name in test_names:
         start_test = time.time()
-        test_path = os.path.join(simulation_path, name)
-        file_path = os.path.join(model_path, name)
+        test_path = os.path.join(dir_simulations, name)
+        file_path = os.path.join(dir_models, name)
 
         # loading the ML model
         new_model = load_model(file_path, compile=True)
@@ -166,9 +168,10 @@ def finalGrade(filename):
 
         # if statement, after every 5th line an extra line
         # is put with the total grade for that group.
-        if n_line % 5 == 0:
+        if n_line % len(test_names) == 0:
             grade = points
-            string_final_grade = "The final grade of group {} is {} out of 5 points".format(group, grade)
+            string_final_grade = "The final grade of group {} is {} out " \
+                                 "of {} points".format(group, grade, len(test_names))
             print(string_final_grade)
             new_lines.append(string_final_grade)
             final_grades.append(string_final_grade)

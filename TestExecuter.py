@@ -5,13 +5,16 @@
 #----------------------------------------------------------------------------------------------------------------------#
 
 from TestFunctions import test_list
+import os
 from TestFunctions import time_test1a, time_test1b, time_test2, time_test3a, time_test3b
 from RecorderAndFilter import screenRec, frameFilter
 from ProgramExecuter import appRunner, appCloser
-from DirectoryManager import vid_names, names, path_unity, path_TwinCat,assignments
+from DirectoryManager import getAssignments, scratchVidNames
+from DirectoryInitializer import path_unity, path_TwinCat, test_names
 
-def testExecuter(save_path_filtered,fps,fourcc_avi,folder_dh_DT):
+def testExecuter(save_path_filtered,fps,fourcc_avi,folder_dh_DT,assignment):
 
+    names = scratchVidNames(test_names)
     # defining recording time
     sim_time = [time_test1a, time_test1b, time_test2, time_test3a, time_test3b]
 
@@ -26,15 +29,12 @@ def testExecuter(save_path_filtered,fps,fourcc_avi,folder_dh_DT):
     ofsets_h = [431, 431, 266, 1254, 1388]
     ofsets_v = [99, 99, 190, 232, 231]
 
-    # setting the minimal area for detecting the moving object, higher means less noise
-    factor = 0.2
-    min_areas = [widths[0]*heights[0]*factor, widths[1]*heights[1]*factor,
-                 widths[2]*heights[2]*factor, widths[3]*heights[3]*factor,
-                 widths[4]*heights[4]*factor]
-
-    threads = []
+    assignments = getAssignments()
     count = 0
     for current_test in test_list:
+        if count >= len(test_names):
+            break
+
         appRunner(path_unity, path_TwinCat, folder_dh_DT)
 
         current_test()
@@ -44,6 +44,7 @@ def testExecuter(save_path_filtered,fps,fourcc_avi,folder_dh_DT):
                   ofsets_h[count], ofsets_v[count])
 
         appCloser()
-        frameFilter(names[count], min_areas[count], fps, heights[count],
-                    widths[count], save_path_filtered, fourcc_avi, vid_names[count], assignments[count])
+        dir = os.path.join(save_path_filtered,test_names[count])
+        frameFilter(names[count], fps, heights[count],
+                    widths[count], dir, fourcc_avi, test_names[count], assignment)
         count += 1

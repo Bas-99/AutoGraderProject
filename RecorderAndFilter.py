@@ -25,7 +25,6 @@ def screenRec(fps,sim_time,fourcc_avi,name,widths,heights,sizes,ofsets_h,ofsets_
             region1 = {'top': ofsets_v, 'left': ofsets_h, 'width': widths, 'height': heights}
             img = sct.grab(region1)
 
-
         # convert this image to numpy array
         img_np = np.array(img)
 
@@ -55,7 +54,7 @@ def screenRec(fps,sim_time,fourcc_avi,name,widths,heights,sizes,ofsets_h,ofsets_
     # de-allocate any associated memory usage
     cv2.destroyAllWindows()
 
-def frameFilter(name,min_area,fps,height,width,save_path_test,fourcc_avi,fileName,assignments):
+def frameFilter(name,fps,height,width,save_path_test,fourcc_avi,fileName,assignments):
     # setting parameters
     all_frames = []
 
@@ -67,49 +66,25 @@ def frameFilter(name,min_area,fps,height,width,save_path_test,fourcc_avi,fileNam
     while True:
         # grab the current frame and initialize the occupied/unoccupied text
         succes, frame = vs.read()
-        text = "Unoccupied"
 
         # if the frame could not be grabbed, then we have reached the end of the video
         if frame is None:
             break
 
-        all_frames.append(frame)
+        resized = cv2.resize(frame, (64, 64))
+        all_frames.append(resized)
 
         key = cv2.waitKey(1) & 0xFF
         # if the `q` key is pressed, break from the lop
         if key == ord("q"):
             break
 
-    prod_out = cv2.VideoWriter(os.path.join(save_path_test, fileName + assignments +".avi"), fourcc_avi, fps, size)
+    prod_out = cv2.VideoWriter(os.path.join(save_path_test, fileName + assignments + ".avi"), fourcc_avi, fps, (64, 64))
 
     for frame in all_frames:
         frame1 = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         prod_out.write(frame1)
 
     prod_out.release()
-    vs.release()
-    cv2.destroyAllWindows()
-
-def imageResize(name, width, height, save_path_test, fileName, assignments, fourcc_avi, fps, size):
-    vs = cv2.VideoCapture(name)
-    resized_arr = []
-    while True:
-        succes, frame = vs.read()
-        if frame is None:
-            break
-        resized = cv2.resize(frame, (width, height), interpolation=cv2.INTER_AREA)
-        resized_arr.append(resized)
-
-        key = cv2.waitKey(1) & 0xFF
-        if key == ord(""):
-            break
-
-    vid_out = cv2.VideoWriter(os.path.join(save_path_test, fileName + assignments + ".avi"), fourcc_avi, fps, size)
-
-    for frame in resized_arr:
-        frame1 = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        vid_out.write(frame1)
-
-    vid_out.release()
     vs.release()
     cv2.destroyAllWindows()

@@ -57,7 +57,7 @@ def appRunner(path_unity,path_TwinCat,folder_dh_DT):
     pyautogui.press('enter')
 
     # navigating through the menu on the left to go to the CIF folder
-    time.sleep(9)
+    time.sleep(12)
     pyautogui.click(102,272)
     time.sleep(0.5)
     pyautogui.press('down')
@@ -100,17 +100,17 @@ def appRunner(path_unity,path_TwinCat,folder_dh_DT):
 
     # the runtime will be activated and restarted
     pyautogui.click(262,113)
-    time.sleep(3)
-    pyautogui.press('enter')
     time.sleep(5)
     pyautogui.press('enter')
-    time.sleep(4)
+    time.sleep(10)
+    pyautogui.press('enter')
+    time.sleep(5)
 
     # the system will login on the corresponding port
     pyautogui.click(1004,113)
     time.sleep(2)
     pyautogui.press('enter')
-    time.sleep(2)
+    time.sleep(5)
 
     # the unity simulation is started
     if "Festo MPS Distributing and Handling.exe" in (i.name() for i in psutil.process_iter()):
