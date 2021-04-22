@@ -14,7 +14,7 @@ from Video2Frames import create_data
 import numpy as np
 import os
 import time
-from DirectoryManager import FolderAdder
+from DirectoryManager import FolderAdder, gradeFolder
 from DirectoryInitializer import test_names, MlModelFolder
 
 # amount of frames is set for every test
@@ -22,6 +22,7 @@ from DirectoryInitializer import test_names, MlModelFolder
 # videos of second test contain 350 frames etc.
 seq_len = [250,350,350,350,350]
 dir_simulations = FolderAdder(test_names)
+dir_grades = gradeFolder()
 
 # function to get the group number out of strings
 def last3(s):
@@ -33,12 +34,12 @@ def isLineEmpty(line):
 
 # function to sort the files in ascending order
 def fileSorter(filename):
-    open("result.txt", 'w').close()
+    open(os.path.join(dir_grades,"result.txt"), 'w').close()
     with open(filename, 'r') as f:
         lines = f.readlines()
 
     lines.sort()
-    outF = open("result.txt", 'w')
+    outF = open(os.path.join(dir_grades,"result.txt"), 'w')
     for line in lines:
         outF.write('{}\n'.format(line))
     outF.close()
@@ -58,7 +59,7 @@ def remove_empty_lines(filename):
 # function to remove duplicate lines in the files
 def duplicateRemover(filename):
     lines_seen = set()  # holds lines already seen
-    outfile = open("result_cleaned.txt", "w")
+    outfile = open(os.path.join(dir_grades,"result_cleaned.txt"), "w")
     for line in open(filename, "r"):
         if line not in lines_seen:  # not a duplicate
             outfile.write(line)
@@ -74,7 +75,7 @@ def gradingData():
     global name
     start = time.time()
     classes = ["correct","incorrect"]
-    open("sub_grades.txt", 'w').close()
+    open(os.path.join(dir_grades,"sub_grades.txt"), 'w').close()
     print("grading file is cleaned")
     dir_models = MlModelFolder(test_names)
 
@@ -119,7 +120,7 @@ def gradingData():
             count += 1
 
             # write the strings with the grades to "sub_grades.txt"
-            with open("sub_grades.txt", 'a') as the_file:
+            with open(os.path.join(dir_grades,"sub_grades.txt"), 'a') as the_file:
                 the_file.write('{}\n'.format(string_grade))
 
         end_test = time.time()
@@ -127,7 +128,7 @@ def gradingData():
 
         # writing the duration per test to the file
         string_test = "Test {} finished grading in {} seconds".format(name, duration_test)
-        with open("sub_grades.txt", 'a') as the_file:
+        with open(os.path.join(dir_grades,"sub_grades.txt"), 'a') as the_file:
             the_file.write('{}\n'.format(string_test))
         print(string_test)
 
@@ -137,7 +138,7 @@ def gradingData():
     # writing the duration of the total grading to the file
     duration_string = "Grading of all assignments took {} seconds".format(duration)
     print(duration_string)
-    with open("sub_grades.txt", 'a') as the_file:
+    with open(os.path.join(dir_grades,"sub_grades.txt"), 'a') as the_file:
         the_file.write('{}\n'.format(duration_string))
 
 # This function goes over the points given by gradingData() and computes a total
@@ -145,8 +146,8 @@ def gradingData():
 # function are two text files, one with the extended results:
 # "extended_final_grades.txt" and one with short results: "final_grades.txt".
 def finalGrade(filename):
-    open("final_grades.txt", 'w').close()
-    open("extended_final_grades.txt", 'w').close()
+    open(os.path.join(dir_grades,"final_grades.txt"), 'w').close()
+    open(os.path.join(dir_grades,"extended_final_grades.txt"), 'w').close()
     new_lines = []
     final_grades = []
 
@@ -178,25 +179,25 @@ def finalGrade(filename):
             points = 0
 
     # below the two text files are made and released
-    outF = open("final_grades.txt", 'w')
-    outF2 = open("extended_final_grades.txt", 'w')
+    outF = open(os.path.join(dir_grades,"final_grades.txt"), 'w')
+    outF2 = open(os.path.join(dir_grades,"extended_final_grades.txt"), 'w')
     for line in final_grades:
         outF.write('{}\n'.format(line))
     outF.close()
     for line in new_lines:
         outF2.write('{}\n'.format(line))
     outF2.close()
-    remove_empty_lines("extended_final_grades.txt")
+    remove_empty_lines(os.path.join(dir_grades,"extended_final_grades.txt"))
 
 # this function is the one that should be called outside of this
 # file. It will make sure the functions are called in the right
 # order to get the grades.
 def autoGrader():
     gradingData()
-    fileSorter("sub_grades.txt")
-    remove_empty_lines("result.txt")
-    duplicateRemover("result.txt")
-    finalGrade("result_cleaned.txt")
+    fileSorter(os.path.join(dir_grades,"sub_grades.txt"))
+    remove_empty_lines(os.path.join(dir_grades,"result.txt"))
+    duplicateRemover(os.path.join(dir_grades,"result.txt"))
+    finalGrade(os.path.join(dir_grades,"result_cleaned.txt"))
 
 
 

@@ -41,6 +41,10 @@ def scratchVidNames(test_names):
         names.append(os.path.join(dir_scratch, test + ".avi"))
     return names
 
-
+# adding a folder for the grading files to be put into
+def gradeFolder():
+    dir_grades = "grades"
+    if not os.path.exists(dir_grades):
+        os.makedirs(dir_grades)
 
 
