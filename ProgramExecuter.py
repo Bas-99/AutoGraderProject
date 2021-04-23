@@ -108,7 +108,7 @@ def appRunner(path_unity,path_TwinCat,folder_dh_DT):
 
     # the system will login on the corresponding port
     pyautogui.click(1004,113)
-    time.sleep(2)
+    time.sleep(5)
     pyautogui.press('enter')
     time.sleep(5)
 
