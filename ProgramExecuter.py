@@ -57,7 +57,7 @@ def appRunner(path_unity,path_TwinCat,folder_dh_DT):
     pyautogui.press('enter')
 
     # navigating through the menu on the left to go to the CIF folder
-    time.sleep(12)
+    time.sleep(15)
     pyautogui.click(102,272)
     time.sleep(0.5)
     pyautogui.press('down')
@@ -118,7 +118,7 @@ def appRunner(path_unity,path_TwinCat,folder_dh_DT):
         # force it to close unity?
     else:
         os.startfile(dir_sim)
-    time.sleep(2)
+    time.sleep(5)
 
     # the system switches back to TwinCat to login into the simulation
     pyautogui.keyDown('alt')
