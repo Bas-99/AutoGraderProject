@@ -38,9 +38,10 @@ def fileSorter(filename):
     with open(filename, 'r') as f:
         lines = f.readlines()
 
-    lines.sort()
+    selected_lines = lines[:-6]
+    selected_lines.sort()
     outF = open("grades/result.txt", 'w')
-    for line in lines:
+    for line in selected_lines:
         outF.write('{}\n'.format(line))
     outF.close()
 
