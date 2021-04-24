@@ -29,11 +29,11 @@ Group 123 scored 0 point for test3a
 Group 123 scored 0 point for test3b
 The final grade of group 123 is 0 out of 5 points
 Group 124 scored 0 point for test1a
-Group 124 scored 0 point for test3a
 Group 124 scored 1 point for test1b
 Group 124 scored 1 point for test2
+Group 124 scored 1 point for test3a
 Group 124 scored 1 point for test3b
-The final grade of group 124 is 3 out of 5 points
+The final grade of group 124 is 4 out of 5 points
 Group 125 scored 0 point for test1a
 Group 125 scored 0 point for test1b
 Group 125 scored 0 point for test2
@@ -64,9 +64,9 @@ Group 151 scored 0 point for test2
 Group 151 scored 0 point for test3a
 Group 151 scored 0 point for test3b
 The final grade of group 151 is 0 out of 5 points
-Test test1a finished grading in 27.260955333709717 seconds
-Test test1b finished grading in 36.221543073654175 seconds
-Test test2 finished grading in 36.933974742889404 seconds
-Test test3a finished grading in 37.008700370788574 seconds
-Test test3b finished grading in 37.58682584762573 seconds
+Test test1a finished grading in 29.217251777648926 seconds
+Test test1b finished grading in 37.61889290809631 seconds
+Test test2 finished grading in 38.28682613372803 seconds
+Test test3a finished grading in 38.239948749542236 seconds
+Test test3b finished grading in 38.436644554138184 seconds
 The final grade of group est is 0 out of 5 points
